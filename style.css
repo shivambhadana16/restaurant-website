@@ -1,1537 +1,697 @@
-```css
-/* =====================================================
-   PREMIUM RESTAURANT WEBSITE
-   Spice & Grill
-===================================================== */
-
-/* ---------- ROOT ---------- */
-
-:root {
-    --gold: #c9a15a;
-    --gold-light: #e5c27b;
-    --dark: #0b0b0b;
-    --dark-2: #111111;
-    --dark-3: #181818;
-    --cream: #f6f2e9;
-    --white: #ffffff;
-    --text: #222;
-    --muted: #777;
-    --border: rgba(201, 161, 90, 0.25);
-}
-
-
-/* ---------- RESET ---------- */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
-
-body {
-    font-family: "Montserrat", sans-serif;
-    color: var(--text);
-    background: var(--cream);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button,
-input,
-textarea {
-    font-family: inherit;
-}
-
-.container {
-    width: min(1180px, 90%);
-    margin: auto;
-}
-
-.section {
-    padding: 110px 0;
-}
-
-
-/* =====================================================
-   NAVBAR
-===================================================== */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    background: rgba(8, 8, 8, 0.82);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.nav-container {
-    min-height: 82px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.logo {
-    font-family: "Playfair Display", serif;
-    font-size: 29px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: white;
-}
-
-.logo span {
-    color: var(--gold-light);
-}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.navbar nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
+    <title>Spice & Grill | Premium Restaurant</title>
 
-.navbar nav a {
-    position: relative;
+    <link rel="stylesheet" href="style.css">
 
-    color: rgba(255,255,255,0.85);
-    font-size: 13px;
-    font-weight: 500;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
 
-    transition: 0.3s ease;
-}
+<body>
 
-.navbar nav a::after {
-    content: "";
+    <!-- ================= NAVBAR ================= -->
 
-    position: absolute;
-    left: 0;
-    bottom: -8px;
+    <header class="navbar">
+        <div class="container nav-container">
 
-    width: 0;
-    height: 1px;
+            <a href="#home" class="logo">
+                Spice<span>&</span>Grill
+            </a>
 
-    background: var(--gold-light);
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-    transition: 0.3s ease;
-}
+            <a href="#reservation" class="nav-btn">
+                Reserve Table
+            </a>
 
-.navbar nav a:hover {
-    color: var(--gold-light);
-}
+        </div>
+    </header>
 
-.navbar nav a:hover::after {
-    width: 100%;
-}
 
-.nav-btn {
-    padding: 12px 21px;
+    <!-- ================= HERO ================= -->
 
-    color: #111;
-    background: linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold)
-    );
+    <section class="hero" id="home">
 
-    border: 1px solid var(--gold-light);
-    border-radius: 2px;
+        <div class="hero-overlay"></div>
 
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+        <div class="hero-content">
 
-    transition: 0.3s ease;
-}
+            <p class="small-title">WELCOME TO SPICE & GRILL</p>
 
-.nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(201,161,90,0.25);
-}
+            <h1>
+                Taste The <span>Difference</span>
+            </h1>
 
+            <p class="hero-text">
+                Fresh ingredients, delicious flavours and unforgettable
+                dining experiences made especially for you.
+            </p>
 
-/* =====================================================
-   HERO
-===================================================== */
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">Explore Menu</a>
 
-.hero {
-    min-height: 100vh;
+                <a href="https://wa.me/919650794377?text=Hello%20Spice%20%26%20Grill%2C%20I%20would%20like%20to%20make%20a%20reservation."
+                   target="_blank"
+                   class="secondary-btn">
+                    Book a Table
+                </a>
+            </div>
 
-    position: relative;
+        </div>
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    </section>
 
-    text-align: center;
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.48),
-            rgba(0,0,0,0.78)
-        ),
-        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2000&q=90");
+    <!-- ================= FEATURES ================= -->
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+    <section class="features">
 
-.hero::before {
-    content: "";
+        <div class="container features-grid">
 
-    position: absolute;
-    inset: 25px;
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Fresh Food</h3>
+                <p>Fresh ingredients prepared with care every day.</p>
+            </div>
 
-    border: 1px solid rgba(255,255,255,0.12);
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Expert Chefs</h3>
+                <p>Our chefs create delicious dishes full of flavour.</p>
+            </div>
 
-    pointer-events: none;
-}
+            <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <h3>Best Experience</h3>
+                <p>A warm atmosphere perfect for family and friends.</p>
+            </div>
 
-.hero-content {
-    position: relative;
-    z-index: 2;
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Quality Service</h3>
+                <p>Friendly service that makes every visit special.</p>
+            </div>
 
-    max-width: 850px;
+        </div>
 
-    padding: 130px 20px 60px;
+    </section>
 
-    color: white;
 
-    animation: heroFade 1.2s ease;
-}
+    <!-- ================= ABOUT ================= -->
 
-@keyframes heroFade {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
+    <section class="about section" id="about">
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        <div class="container about-grid">
 
-.small-title {
-    display: inline-block;
+            <div class="about-image">
+                <div class="about-badge">
+                    <strong>10+</strong>
+                    <span>Years Experience</span>
+                </div>
+            </div>
 
-    color: var(--gold-light);
+            <div class="about-content">
 
-    font-size: 12px;
-    font-weight: 700;
+                <p class="section-label">ABOUT OUR RESTAURANT</p>
 
-    letter-spacing: 5px;
+                <h2>
+                    Where Great Food Meets Great Moments
+                </h2>
 
-    margin-bottom: 22px;
-}
+                <p>
+                    At Spice & Grill, we believe food is more than just a meal.
+                    It is an experience that brings people together.
+                </p>
 
-.hero h1 {
-    font-family: "Playfair Display", serif;
+                <p>
+                    From carefully selected ingredients to beautifully prepared
+                    dishes, every detail is designed to give you a memorable
+                    dining experience.
+                </p>
 
-    font-size: clamp(55px, 8vw, 100px);
+                <div class="about-points">
+                    <div>✓ Fresh & Quality Ingredients</div>
+                    <div>✓ Comfortable Family Environment</div>
+                    <div>✓ Professional Service</div>
+                    <div>✓ Delicious Signature Dishes</div>
+                </div>
 
-    line-height: 1;
+                <a href="#contact" class="primary-btn">
+                    Visit Us
+                </a>
 
-    font-weight: 600;
+            </div>
 
-    margin-bottom: 30px;
-}
+        </div>
 
-.hero h1 span {
-    color: var(--gold-light);
-}
+    </section>
 
-.hero-text {
-    max-width: 650px;
 
-    margin: auto;
+    <!-- ================= MENU ================= -->
 
-    color: rgba(255,255,255,0.78);
+    <section class="menu section" id="menu">
 
-    font-size: 15px;
-    font-weight: 400;
-}
+        <div class="container">
 
-.hero-buttons {
-    margin-top: 38px;
+            <div class="section-heading">
 
-    display: flex;
-    justify-content: center;
-    gap: 14px;
+                <p class="section-label">OUR SPECIAL MENU</p>
 
-    flex-wrap: wrap;
-}
+                <h2>
+                    Delicious Food For Every Taste
+                </h2>
 
-.primary-btn,
-.secondary-btn {
-    display: inline-flex;
+                <p>
+                    Discover our chef's favourite dishes made with fresh ingredients.
+                </p>
 
-    align-items: center;
-    justify-content: center;
+            </div>
 
-    min-width: 145px;
 
-    padding: 14px 25px;
+            <div class="menu-grid">
 
-    font-size: 12px;
-    font-weight: 700;
+                <!-- ITEM 1 -->
 
-    letter-spacing: 0.5px;
+                <div class="menu-card">
 
-    border-radius: 2px;
+                    <div class="food-image food-1"></div>
 
-    transition: 0.35s ease;
-}
+                    <div class="menu-info">
 
-.primary-btn {
-    color: #111;
+                        <div class="menu-title">
+                            <h3>Grilled Chicken</h3>
+                            <span>₹349</span>
+                        </div>
 
-    background: linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold)
-    );
+                        <p>
+                            Tender grilled chicken served with fresh herbs and vegetables.
+                        </p>
 
-    border: 1px solid var(--gold);
-}
+                    </div>
 
-.primary-btn:hover {
-    transform: translateY(-4px);
+                </div>
 
-    box-shadow:
-        0 15px 35px rgba(201,161,90,0.28);
-}
 
-.secondary-btn {
-    color: white;
+                <!-- ITEM 2 -->
 
-    border: 1px solid rgba(255,255,255,0.5);
-}
+                <div class="menu-card">
 
-.secondary-btn:hover {
-    color: #111;
-    background: white;
+                    <div class="food-image food-2"></div>
 
-    transform: translateY(-4px);
-}
+                    <div class="menu-info">
 
+                        <div class="menu-title">
+                            <h3>Paneer Tikka</h3>
+                            <span>₹299</span>
+                        </div>
 
-/* =====================================================
-   FEATURES
-===================================================== */
+                        <p>
+                            Soft paneer marinated with aromatic spices and grilled perfectly.
+                        </p>
 
-.features {
-    position: relative;
+                    </div>
 
-    padding: 70px 0;
+                </div>
 
-    background: var(--dark);
-    color: white;
-}
 
-.features-grid {
-    display: grid;
+                <!-- ITEM 3 -->
 
-    grid-template-columns: repeat(4, 1fr);
+                <div class="menu-card">
 
-    gap: 1px;
+                    <div class="food-image food-3"></div>
 
-    background: rgba(255,255,255,0.1);
-}
+                    <div class="menu-info">
 
-.feature-card {
-    padding: 30px 20px;
+                        <div class="menu-title">
+                            <h3>Butter Chicken</h3>
+                            <span>₹399</span>
+                        </div>
 
-    text-align: center;
+                        <p>
+                            Creamy tomato gravy with tender chicken and rich Indian spices.
+                        </p>
 
-    background: var(--dark);
+                    </div>
 
-    transition: 0.4s ease;
-}
+                </div>
 
-.feature-card:hover {
-    background: #151515;
-}
 
-.feature-icon {
-    font-size: 30px;
+                <!-- ITEM 4 -->
 
-    margin-bottom: 12px;
+                <div class="menu-card">
 
-    filter: grayscale(0.2);
-}
+                    <div class="food-image food-4"></div>
 
-.feature-card h3 {
-    font-family: "Playfair Display", serif;
+                    <div class="menu-info">
 
-    font-size: 20px;
+                        <div class="menu-title">
+                            <h3>Veg Biryani</h3>
+                            <span>₹249</span>
+                        </div>
 
-    margin-bottom: 8px;
-}
+                        <p>
+                            Fragrant basmati rice cooked with vegetables and special spices.
+                        </p>
 
-.feature-card p {
-    color: #8f8f8f;
+                    </div>
 
-    font-size: 12px;
-}
+                </div>
 
 
-/* =====================================================
-   SECTION HEADINGS
-===================================================== */
+                <!-- ITEM 5 -->
 
-.section-heading {
-    max-width: 720px;
+                <div class="menu-card">
 
-    margin: 0 auto 60px;
+                    <div class="food-image food-5"></div>
 
-    text-align: center;
-}
+                    <div class="menu-info">
 
-.section-label {
-    color: #a77b35;
+                        <div class="menu-title">
+                            <h3>Margherita Pizza</h3>
+                            <span>₹329</span>
+                        </div>
 
-    font-size: 11px;
-    font-weight: 700;
+                        <p>
+                            Classic pizza topped with mozzarella, tomato and fresh basil.
+                        </p>
 
-    letter-spacing: 3px;
+                    </div>
 
-    margin-bottom: 13px;
-}
+                </div>
 
-.section-heading h2,
-.about-content h2,
-.contact-content h2,
-.reservation-content h2 {
-    font-family: "Playfair Display", serif;
 
-    font-size: clamp(38px, 5vw, 58px);
+                <!-- ITEM 6 -->
 
-    line-height: 1.15;
+                <div class="menu-card">
 
-    font-weight: 600;
-}
+                    <div class="food-image food-6"></div>
 
-.section-heading h2::after {
-    content: "";
+                    <div class="menu-info">
 
-    display: block;
+                        <div class="menu-title">
+                            <h3>Chocolate Dessert</h3>
+                            <span>₹199</span>
+                        </div>
 
-    width: 45px;
-    height: 1px;
+                        <p>
+                            Rich chocolate dessert perfect for ending your meal.
+                        </p>
 
-    margin: 22px auto 20px;
+                    </div>
 
-    background: var(--gold);
-}
+                </div>
 
-.section-heading p:not(.section-label) {
-    color: var(--muted);
+            </div>
 
-    font-size: 13px;
-}
+        </div>
 
+    </section>
 
-/* =====================================================
-   ABOUT
-===================================================== */
 
-.about {
-    background: var(--cream);
-}
+    <!-- ================= SPECIAL OFFER ================= -->
 
-.about-grid {
-    display: grid;
+    <section class="offer">
 
-    grid-template-columns: 1fr 1fr;
+        <div class="container offer-content">
 
-    gap: 85px;
+            <div>
+                <p class="section-label">TODAY'S SPECIAL</p>
 
-    align-items: center;
-}
+                <h2>
+                    Get 20% Off Your First Order
+                </h2>
 
-.about-image {
-    min-height: 570px;
+                <p>
+                    Enjoy delicious food and make your first visit memorable.
+                </p>
+            </div>
 
-    position: relative;
+            <a href="https://wa.me/919650794377?text=Hello%20Spice%20%26%20Grill%2C%20I%20want%20to%20know%20about%20today's%20special%20offer."
+               target="_blank"
+               class="primary-btn">
+                Order Now
+            </a>
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.1),
-            rgba(0,0,0,0.25)
-        ),
-        url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=90");
+        </div>
 
-    background-size: cover;
-    background-position: center;
+    </section>
 
-    box-shadow: 25px 25px 0 #ded6c7;
-}
 
-.about-image::after {
-    content: "";
+    <!-- ================= GALLERY ================= -->
 
-    position: absolute;
+    <section class="gallery section" id="gallery">
 
-    inset: 20px;
+        <div class="container">
 
-    border: 1px solid rgba(255,255,255,0.45);
-}
+            <div class="section-heading">
 
-.about-badge {
-    position: absolute;
+                <p class="section-label">OUR GALLERY</p>
 
-    z-index: 2;
+                <h2>Food & Moments</h2>
 
-    right: -25px;
-    bottom: 35px;
+                <p>
+                    A glimpse of the food and atmosphere waiting for you.
+                </p>
 
-    width: 150px;
-    height: 150px;
+            </div>
 
-    display: flex;
-    flex-direction: column;
 
-    align-items: center;
-    justify-content: center;
+            <div class="gallery-grid">
 
-    text-align: center;
+                <div class="gallery-item gallery-1"></div>
+                <div class="gallery-item gallery-2"></div>
+                <div class="gallery-item gallery-3"></div>
+                <div class="gallery-item gallery-4"></div>
+                <div class="gallery-item gallery-5"></div>
+                <div class="gallery-item gallery-6"></div>
 
-    background: var(--dark);
+            </div>
 
-    color: white;
+        </div>
 
-    border: 1px solid var(--gold);
-}
+    </section>
 
-.about-badge strong {
-    font-family: "Playfair Display", serif;
 
-    font-size: 43px;
+    <!-- ================= REVIEWS ================= -->
 
-    color: var(--gold-light);
-}
+    <section class="reviews section" id="reviews">
 
-.about-badge span {
-    font-size: 10px;
+        <div class="container">
 
-    letter-spacing: 1px;
+            <div class="section-heading">
 
-    color: #bbb;
-}
+                <p class="section-label">CUSTOMER REVIEWS</p>
 
-.about-content > p:not(.section-label) {
-    color: #777;
+                <h2>What Our Guests Say</h2>
 
-    font-size: 13px;
+            </div>
 
-    margin-bottom: 15px;
-}
 
-.about-points {
-    display: grid;
+            <div class="review-grid">
 
-    grid-template-columns: 1fr 1fr;
+                <div class="review-card">
 
-    gap: 12px;
+                    <div class="stars">★★★★★</div>
 
-    margin: 28px 0 32px;
-}
+                    <p>
+                        "Amazing food and beautiful atmosphere. The service
+                        was excellent and everything tasted fresh."
+                    </p>
 
-.about-points div {
-    font-size: 12px;
+                    <h3>Rahul Sharma</h3>
+                    <span>Happy Customer</span>
 
-    font-weight: 600;
-}
+                </div>
 
-.about-points div::first-letter {
-    color: var(--gold);
-}
 
+                <div class="review-card">
 
-/* =====================================================
-   MENU
-===================================================== */
+                    <div class="stars">★★★★★</div>
 
-.menu {
-    background: #111;
-    color: white;
-}
+                    <p>
+                        "One of the best places for a family dinner.
+                        The food was delicious and reasonably priced."
+                    </p>
 
-.menu .section-label {
-    color: var(--gold-light);
-}
+                    <h3>Priya Verma</h3>
+                    <span>Happy Customer</span>
 
-.menu .section-heading h2 {
-    color: white;
-}
+                </div>
 
-.menu .section-heading p:not(.section-label) {
-    color: #888;
-}
 
-.menu-grid {
-    display: grid;
+                <div class="review-card">
 
-    grid-template-columns: repeat(3, 1fr);
+                    <div class="stars">★★★★★</div>
 
-    gap: 25px;
-}
+                    <p>
+                        "Loved the ambience and the taste. Definitely
+                        coming back again with my friends."
+                    </p>
 
-.menu-card {
-    overflow: hidden;
+                    <h3>Arjun Mehta</h3>
+                    <span>Happy Customer</span>
 
-    background: #181818;
+                </div>
 
-    border: 1px solid rgba(255,255,255,0.07);
+            </div>
 
-    transition: 0.45s ease;
-}
+        </div>
 
-.menu-card:hover {
-    transform: translateY(-8px);
+    </section>
 
-    border-color: var(--border);
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.35);
-}
+    <!-- ================= RESERVATION ================= -->
 
-.food-image {
-    height: 245px;
+    <section class="reservation section" id="reservation">
 
-    position: relative;
+        <div class="container reservation-box">
 
-    background-size: cover;
-    background-position: center;
+            <div class="reservation-content">
 
-    transition: 0.6s ease;
-}
+                <p class="section-label">RESERVE YOUR TABLE</p>
 
-.menu-card:hover .food-image {
-    transform: scale(1.04);
-}
+                <h2>
+                    Make Your Dining Experience Special
+                </h2>
 
-.food-1 {
-    background-image: url("https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=90");
-}
+                <p>
+                    Planning a dinner with family or friends?
+                    Reserve your table today.
+                </p>
 
-.food-2 {
-    background-image: url("https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=1000&q=90");
-}
+                <a href="https://wa.me/919650794377?text=Hello%20Spice%20%26%20Grill%2C%20I%20would%20like%20to%20reserve%20a%20table."
+                   target="_blank"
+                   class="primary-btn">
+                    Reserve on WhatsApp
+                </a>
 
-.food-3 {
-    background-image: url("https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1000&q=90");
-}
+            </div>
 
-.food-4 {
-    background-image: url("https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1000&q=90");
-}
+            <div class="reservation-info">
 
-.food-5 {
-    background-image: url("https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=90");
-}
+                <div>
+                    <span>📞</span>
+                    <div>
+                        <strong>Call Us</strong>
+                        <p>9650794377</p>
+                    </div>
+                </div>
 
-.food-6 {
-    background-image: url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=90");
-}
+                <div>
+                    <span>🕒</span>
+                    <div>
+                        <strong>Opening Hours</strong>
+                        <p>11:00 AM – 11:00 PM</p>
+                    </div>
+                </div>
 
-.menu-info {
-    padding: 23px;
-}
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>Location</strong>
+                        <p>Faridabad, Haryana</p>
+                    </div>
+                </div>
 
-.menu-title {
-    display: flex;
+            </div>
 
-    justify-content: space-between;
+        </div>
 
-    align-items: center;
+    </section>
 
-    gap: 15px;
 
-    margin-bottom: 8px;
-}
+    <!-- ================= CONTACT ================= -->
 
-.menu-title h3 {
-    font-family: "Playfair Display", serif;
+    <section class="contact section" id="contact">
 
-    font-size: 21px;
+        <div class="container contact-grid">
 
-    font-weight: 600;
-}
+            <div class="contact-content">
 
-.menu-title span {
-    color: var(--gold-light);
+                <p class="section-label">GET IN TOUCH</p>
 
-    font-size: 14px;
+                <h2>
+                    We'd Love To Hear From You
+                </h2>
 
-    font-weight: 700;
+                <p>
+                    Have a question or want to plan a special dinner?
+                    Contact us today.
+                </p>
 
-    white-space: nowrap;
-}
 
-.menu-info p {
-    color: #888;
+                <div class="contact-details">
 
-    font-size: 12px;
-}
+                    <div class="contact-detail">
+                        <span>📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>9650794377</p>
+                        </div>
+                    </div>
 
+                    <div class="contact-detail">
+                        <span>💬</span>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p>9650794377</p>
+                        </div>
+                    </div>
 
-/* =====================================================
-   OFFER
-===================================================== */
+                    <div class="contact-detail">
+                        <span>📍</span>
+                        <div>
+                            <strong>Address</strong>
+                            <p>Faridabad, Haryana</p>
+                        </div>
+                    </div>
 
-.offer {
-    position: relative;
+                </div>
 
-    padding: 80px 0;
+            </div>
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.82),
-            rgba(0,0,0,0.82)
-        ),
-        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=90");
 
-    background-size: cover;
-    background-position: center;
+            <form class="contact-form" onsubmit="sendWhatsApp(event)">
 
-    color: white;
-}
+                <h3>Send Us A Message</h3>
 
-.offer::before {
-    content: "";
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
 
-    position: absolute;
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Your Phone Number"
+                    required
+                >
 
-    inset: 25px;
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
 
-    border: 1px solid rgba(201,161,90,0.35);
-}
+                <button type="submit" class="primary-btn">
+                    Send Message
+                </button>
 
-.offer-content {
-    position: relative;
-    z-index: 2;
+            </form>
 
-    display: flex;
+        </div>
 
-    align-items: center;
+    </section>
 
-    justify-content: space-between;
 
-    gap: 40px;
-}
+    <!-- ================= FOOTER ================= -->
 
-.offer .section-label {
-    color: var(--gold-light);
-}
+    <footer>
 
-.offer h2 {
-    font-family: "Playfair Display", serif;
+        <div class="container footer-grid">
 
-    font-size: clamp(34px, 5vw, 55px);
+            <div>
+                <a href="#home" class="logo">
+                    Spice<span>&</span>Grill
+                </a>
 
-    line-height: 1.1;
+                <p>
+                    Delicious food, warm hospitality and memorable moments.
+                </p>
+            </div>
 
-    margin-bottom: 12px;
-}
 
-.offer p:not(.section-label) {
-    color: #aaa;
+            <div>
 
-    font-size: 13px;
-}
+                <h3>Quick Links</h3>
 
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
 
-/* =====================================================
-   GALLERY
-===================================================== */
+            </div>
 
-.gallery {
-    background: var(--cream);
-}
 
-.gallery-grid {
-    display: grid;
+            <div>
 
-    grid-template-columns: repeat(3, 1fr);
+                <h3>Contact</h3>
 
-    grid-auto-rows: 250px;
+                <p>📞 9650794377</p>
+                <p>📍 Faridabad, Haryana</p>
+                <p>🕒 11 AM – 11 PM</p>
 
-    gap: 10px;
-}
+            </div>
 
-.gallery-item {
-    position: relative;
+        </div>
 
-    overflow: hidden;
 
-    background-size: cover;
-    background-position: center;
+        <div class="copyright">
 
-    transition: 0.5s ease;
-}
+            <p>
+                © 2026 Spice & Grill. All Rights Reserved.
+            </p>
 
-.gallery-item::after {
-    content: "";
+        </div>
 
-    position: absolute;
+    </footer>
 
-    inset: 0;
 
-    background: rgba(0,0,0,0);
+    <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
 
-    transition: 0.4s ease;
-}
+    <a
+        href="https://wa.me/919650794377?text=Hello%20Spice%20%26%20Grill%2C%20I%20want%20to%20know%20more."
+        target="_blank"
+        class="whatsapp-btn"
+        aria-label="Chat on WhatsApp"
+    >
+        💬
+    </a>
 
-.gallery-item:hover {
-    transform: scale(0.98);
-}
 
-.gallery-item:hover::after {
-    background: rgba(0,0,0,0.18);
-}
+    <!-- ================= JAVASCRIPT ================= -->
 
-.gallery-1 {
-    background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=90");
-}
+    <script>
 
-.gallery-2 {
-    background-image: url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=90");
-}
+        function sendWhatsApp(event) {
 
-.gallery-3 {
-    background-image: url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=90");
-}
+            event.preventDefault();
 
-.gallery-4 {
-    background-image: url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=90");
-}
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const message = document.getElementById("message").value;
 
-.gallery-5 {
-    background-image: url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=90");
-}
+            const whatsappMessage =
+                "Hello Spice & Grill,%0A%0A" +
+                "Name: " + encodeURIComponent(name) + "%0A" +
+                "Phone: " + encodeURIComponent(phone) + "%0A" +
+                "Message: " + encodeURIComponent(message);
 
-.gallery-6 {
-    background-image: url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=90");
-}
+            window.open(
+                "https://wa.me/919650794377?text=" + whatsappMessage,
+                "_blank"
+            );
+        }
 
+    </script>
 
-/* =====================================================
-   REVIEWS
-===================================================== */
-
-.reviews {
-    background: #ebe5d9;
-}
-
-.review-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.review-card {
-    position: relative;
-
-    padding: 38px 30px;
-
-    background: #f9f6ef;
-
-    text-align: center;
-
-    border: 1px solid rgba(0,0,0,0.06);
-
-    transition: 0.35s ease;
-}
-
-.review-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-}
-
-.review-card::before {
-    content: "“";
-
-    position: absolute;
-
-    top: 5px;
-    left: 20px;
-
-    font-family: Georgia, serif;
-
-    font-size: 65px;
-
-    color: rgba(201,161,90,0.25);
-}
-
-.stars {
-    color: #b18440;
-
-    font-size: 13px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 18px;
-}
-
-.review-card p {
-    color: #666;
-
-    font-size: 13px;
-
-    font-style: italic;
-
-    margin-bottom: 20px;
-}
-
-.review-card h3 {
-    font-family: "Playfair Display", serif;
-
-    font-size: 20px;
-}
-
-.review-card span {
-    color: #999;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
-}
-
-
-/* =====================================================
-   RESERVATION
-===================================================== */
-
-.reservation {
-    background: var(--cream);
-}
-
-.reservation-box {
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 70px;
-
-    display: grid;
-
-    grid-template-columns: 1.4fr 1fr;
-
-    gap: 70px;
-
-    align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111,
-            #191919
-        );
-
-    color: white;
-
-    box-shadow: 0 25px 70px rgba(0,0,0,0.15);
-}
-
-.reservation-box::before {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    right: -120px;
-    top: -120px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(201,161,90,0.25);
-}
-
-.reservation-content {
-    position: relative;
-    z-index: 2;
-}
-
-.reservation-content .section-label {
-    color: var(--gold-light);
-}
-
-.reservation-content h2 {
-    color: white;
-
-    margin-bottom: 15px;
-}
-
-.reservation-content > p:not(.section-label) {
-    color: #999;
-
-    font-size: 13px;
-
-    margin-bottom: 28px;
-}
-
-.reservation-info {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-}
-
-.reservation-info > div {
-    display: flex;
-
-    gap: 17px;
-
-    align-items: center;
-}
-
-.reservation-info > div > span {
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid var(--border);
-
-    border-radius: 50%;
-
-    font-size: 18px;
-}
-
-.reservation-info strong {
-    font-size: 12px;
-
-    letter-spacing: 0.5px;
-}
-
-.reservation-info p {
-    color: #888;
-
-    font-size: 11px;
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact {
-    background: #ebe5d9;
-}
-
-.contact-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-.contact-content h2 {
-    margin-bottom: 18px;
-}
-
-.contact-content > p:not(.section-label) {
-    color: #777;
-
-    font-size: 13px;
-
-    margin-bottom: 32px;
-}
-
-.contact-details {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 22px;
-}
-
-.contact-detail {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-}
-
-.contact-detail > span {
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    background: #f7f2e8;
-
-    border: 1px solid rgba(0,0,0,0.08);
-
-    border-radius: 50%;
-}
-
-.contact-detail strong {
-    font-size: 12px;
-}
-
-.contact-detail p {
-    color: #777;
-
-    font-size: 12px;
-}
-
-.contact-form {
-    padding: 42px;
-
-    background: #111;
-
-    box-shadow: 0 25px 60px rgba(0,0,0,0.16);
-}
-
-.contact-form h3 {
-    font-family: "Playfair Display", serif;
-
-    color: white;
-
-    font-size: 30px;
-
-    margin-bottom: 25px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-
-    padding: 14px 15px;
-
-    margin-bottom: 14px;
-
-    color: white;
-
-    background: #181818;
-
-    border: 1px solid #292929;
-
-    outline: none;
-
-    font-size: 12px;
-
-    transition: 0.3s ease;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #777;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--gold);
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-    padding-top: 65px;
-
-    background: #080808;
-
-    color: white;
-}
-
-.footer-grid {
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr;
-
-    gap: 60px;
-
-    padding-bottom: 55px;
-}
-
-.footer-grid > div > p {
-    max-width: 350px;
-
-    color: #777;
-
-    font-size: 12px;
-
-    margin-top: 15px;
-}
-
-.footer-grid h3 {
-    font-family: "Playfair Display", serif;
-
-    font-size: 18px;
-
-    margin-bottom: 17px;
-}
-
-.footer-grid a:not(.logo) {
-    display: block;
-
-    color: #777;
-
-    font-size: 12px;
-
-    margin-bottom: 9px;
-
-    transition: 0.3s;
-}
-
-.footer-grid a:not(.logo):hover {
-    color: var(--gold-light);
-
-    padding-left: 4px;
-}
-
-.footer-grid p {
-    color: #777;
-
-    font-size: 12px;
-
-    margin-bottom: 8px;
-}
-
-.copyright {
-    padding: 20px;
-
-    text-align: center;
-
-    border-top: 1px solid #202020;
-}
-
-.copyright p {
-    color: #555;
-
-    font-size: 10px;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp-btn {
-    position: fixed;
-
-    right: 24px;
-    bottom: 24px;
-
-    width: 58px;
-    height: 58px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 50%;
-
-    background: #25d366;
-
-    font-size: 25px;
-
-    z-index: 999;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.25);
-
-    transition: 0.3s ease;
-}
-
-.whatsapp-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.3);
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 950px) {
-
-    .navbar nav {
-        gap: 17px;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-grid {
-        gap: 50px;
-    }
-
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .review-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .reservation-box {
-        grid-template-columns: 1fr;
-
-        padding: 55px;
-    }
-
-    .contact-grid {
-        gap: 45px;
-    }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 680px) {
-
-    .section {
-        padding: 75px 0;
-    }
-
-    .container {
-        width: 92%;
-    }
-
-    .navbar {
-        position: absolute;
-    }
-
-    .nav-container {
-        min-height: 68px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .navbar nav,
-    .nav-btn {
-        display: none;
-    }
-
-    .hero {
-        min-height: 100vh;
-
-        background-attachment: scroll;
-    }
-
-    .hero::before {
-        inset: 15px;
-    }
-
-    .hero-content {
-        padding: 100px 18px 45px;
-    }
-
-    .small-title {
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
-    .hero h1 {
-        font-size: 51px;
-    }
-
-    .hero-text {
-        font-size: 13px;
-    }
-
-    .hero-buttons {
-        margin-top: 28px;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-        width: 100%;
-    }
-
-    .features {
-        padding: 45px 0;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .feature-card {
-        padding: 22px 8px;
-    }
-
-    .feature-card h3 {
-        font-size: 16px;
-    }
-
-    .feature-card p {
-        font-size: 10px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 55px;
-    }
-
-    .about-image {
-        min-height: 400px;
-
-        box-shadow: 15px 15px 0 #ded6c7;
-    }
-
-    .about-badge {
-        right: 12px;
-        bottom: 15px;
-
-        width: 125px;
-        height: 125px;
-    }
-
-    .about-points {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .food-image {
-        height: 260px;
-    }
-
-    .offer {
-        padding: 65px 0;
-    }
-
-    .offer::before {
-        inset: 15px;
-    }
-
-    .offer-content {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .offer h2 {
-        font-size: 36px;
-    }
-
-    .offer .primary-btn {
-        width: auto;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-
-        grid-auto-rows: 170px;
-
-        gap: 7px;
-    }
-
-    .reservation-box {
-        padding: 40px 25px;
-
-        gap: 40px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-    .contact-form {
-        padding: 30px 20px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .whatsapp-btn {
-        right: 17px;
-        bottom: 17px;
-
-        width: 54px;
-        height: 54px;
-    }
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 400px) {
-
-    .hero h1 {
-        font-size: 43px;
-    }
-
-    .section-heading h2,
-    .about-content h2,
-    .contact-content h2,
-    .reservation-content h2 {
-        font-size: 34px;
-    }
-
-    .features-grid {
-        gap: 0;
-    }
-
-    .gallery-grid {
-        grid-auto-rows: 145px;
-    }
-}
+</body>
+</html>
 ```
